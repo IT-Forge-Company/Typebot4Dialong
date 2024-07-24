@@ -88,6 +88,20 @@ export const BlocksSideBar = () => {
     closeSideBar()
   }
 
+  const bubbleTypesToExclude = [
+    BubbleBlockType.VIDEO,
+    BubbleBlockType.EMBED,
+    BubbleBlockType.AUDIO,
+  ]
+
+  const inputTypesToExclude = [
+    InputBlockType.DATE,
+    InputBlockType.PICTURE_CHOICE,
+    InputBlockType.PAYMENT,
+    InputBlockType.RATING,
+    InputBlockType.FILE,
+  ]
+
   return (
     <Flex
       w="360px"
@@ -140,9 +154,15 @@ export const BlocksSideBar = () => {
             {t('editor.sidebarBlocks.blockType.bubbles.heading')}
           </Text>
           <SimpleGrid columns={2} spacing="3">
-            {Object.values(BubbleBlockType).map((type) => (
-              <BlockCard key={type} type={type} onMouseDown={handleMouseDown} />
-            ))}
+            {Object.values(BubbleBlockType)
+              .filter((type) => !bubbleTypesToExclude.includes(type))
+              .map((type) => (
+                <BlockCard
+                  key={type}
+                  type={type}
+                  onMouseDown={handleMouseDown}
+                />
+              ))}
           </SimpleGrid>
         </Stack>
 
@@ -151,9 +171,15 @@ export const BlocksSideBar = () => {
             {t('editor.sidebarBlocks.blockType.inputs.heading')}
           </Text>
           <SimpleGrid columns={2} spacing="3">
-            {Object.values(InputBlockType).map((type) => (
-              <BlockCard key={type} type={type} onMouseDown={handleMouseDown} />
-            ))}
+            {Object.values(InputBlockType)
+              .filter((type) => !inputTypesToExclude.includes(type))
+              .map((type) => (
+                <BlockCard
+                  key={type}
+                  type={type}
+                  onMouseDown={handleMouseDown}
+                />
+              ))}
           </SimpleGrid>
         </Stack>
 
