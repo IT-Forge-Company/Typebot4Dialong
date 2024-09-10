@@ -8,7 +8,6 @@
   "devDependencies": {
     "@typebot.io/forge": "workspace:*",
     "@typebot.io/openai-block": "workspace:*",
-    "@typebot.io/zemantic-ai-block": "workspace:*",
     "@typebot.io/cal-com-block": "workspace:*",
     "@typebot.io/chat-node-block": "workspace:*",
     "@typebot.io/qrcode-block": "workspace:*",
@@ -18,6 +17,8 @@
     "@typebot.io/anthropic-block": "workspace:*",
     "@typebot.io/together-ai-block": "workspace:*",
     "@typebot.io/open-router-block": "workspace:*",
-    "@typebot.io/nocodb-block": "workspace:*"
+    "@typebot.io/nocodb-block": "workspace:*",
+    "@typebot.io/segment-block": "workspace:*",
+    "@typebot.io/groq-block": "workspace:*"
   }
 }

@@ -84,7 +84,8 @@ Used for sending email notifications and authentication
 
 4. Create a OAuth client ID. This will be your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`
 
-   Make sure to set the following scopes: `userinfo.email`, `spreadsheets`, `drive.file`
+   Make sure to set the following scopes located in your OAuth Consent Screen: `userinfo.email`, `spreadsheets`, `drive.file`
+   https://developers.google.com/identity/protocols/oauth2/scopes
 
    The "Authorized redirect URIs" used when creating the credentials must include your full domain and end in the callback path:
 
@@ -234,6 +235,14 @@ Used to search for images. You can create an Unsplash app [here](https://unsplas
 | ------------------------------- | ------- | ----------------- |
 | NEXT_PUBLIC_UNSPLASH_APP_NAME   |         | Unsplash App name |
 | NEXT_PUBLIC_UNSPLASH_ACCESS_KEY |         | Unsplash API key  |
+
+## Pexels (video picker)
+
+Used to search for videos. You can create a Pexels app [here](https://www.pexels.com/api/key/)
+
+| Parameter                  | Default | Description    |
+| -------------------------- | ------- | -------------- |
+| NEXT_PUBLIC_PEXELS_API_KEY |         | Pexels API key |
 
 ## Tolgee (i18n contribution dev tool)
 

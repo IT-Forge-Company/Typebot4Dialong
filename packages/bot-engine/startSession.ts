@@ -162,8 +162,7 @@ export const startSession = async ({
       typebot: {
         id: typebot.id,
         settings: deepParseVariables(
-          initialState.typebotsQueue[0].typebot.variables,
-          { removeEmptyStrings: true }
+          initialState.typebotsQueue[0].typebot.variables
         )(typebot.settings),
         theme: sanitizeAndParseTheme(typebot.theme, {
           variables: initialState.typebotsQueue[0].typebot.variables,
@@ -274,12 +273,12 @@ export const startSession = async ({
       typebot: {
         id: typebot.id,
         settings: deepParseVariables(
-          newSessionState.typebotsQueue[0].typebot.variables,
-          { removeEmptyStrings: true }
+          newSessionState.typebotsQueue[0].typebot.variables
         )(typebot.settings),
         theme: sanitizeAndParseTheme(typebot.theme, {
           variables: initialState.typebotsQueue[0].typebot.variables,
         }),
+        publishedAt: typebot.updatedAt,
       },
       dynamicTheme: parseDynamicTheme(newSessionState),
       logs: startLogs.length > 0 ? startLogs : undefined,
@@ -293,12 +292,12 @@ export const startSession = async ({
     typebot: {
       id: typebot.id,
       settings: deepParseVariables(
-        newSessionState.typebotsQueue[0].typebot.variables,
-        { removeEmptyStrings: true }
+        newSessionState.typebotsQueue[0].typebot.variables
       )(typebot.settings),
       theme: sanitizeAndParseTheme(typebot.theme, {
         variables: initialState.typebotsQueue[0].typebot.variables,
       }),
+      publishedAt: typebot.updatedAt,
     },
     messages,
     input,
@@ -472,11 +471,9 @@ const sanitizeAndParseTheme = (
   { variables }: { variables: Variable[] }
 ): Theme => ({
   general: theme.general
-    ? deepParseVariables(variables, { removeEmptyStrings: true })(theme.general)
+    ? deepParseVariables(variables)(theme.general)
     : undefined,
-  chat: theme.chat
-    ? deepParseVariables(variables, { removeEmptyStrings: true })(theme.chat)
-    : undefined,
+  chat: theme.chat ? deepParseVariables(variables)(theme.chat) : undefined,
   customCss: theme.customCss
     ? removeLiteBadgeCss(parseVariables(variables)(theme.customCss))
     : undefined,
